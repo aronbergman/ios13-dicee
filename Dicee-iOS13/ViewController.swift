@@ -9,19 +9,25 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var collectionOfImages = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
 
     // OBOutlet allows me to reference a UI element
     @IBOutlet weak var diceImageViewOne: UIImageView!
     @IBOutlet weak var diceImageViewTwo: UIImageView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//    }
+
+    @IBAction func rollButtonPressed(_ sender: UIButton) {
+        var leftDiceNumber = Int.random(in: 0...5)
+//        var rightDiceNumber = Int.random(in: 0...5)
+       
         // = #imageLiteral(resourceName: "DiceSix")
-        diceImageViewOne.image = #imageLiteral(resourceName: "DiceSix")
-        diceImageViewTwo.image = #imageLiteral(resourceName: "DiceTwo")
-        diceImageViewOne.alpha = 0.5
-        diceImageViewTwo.alpha = 0.5
+        diceImageViewOne.image = collectionOfImages[leftDiceNumber]
+        diceImageViewTwo.image = collectionOfImages.randomElement()
+//        diceImageViewOne.alpha = 0.5
+//        diceImageViewTwo.alpha = 0.5
     }
-
-
 }
 
